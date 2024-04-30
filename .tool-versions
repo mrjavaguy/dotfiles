@@ -1,0 +1,13 @@
+nodejs 22.0.0
+kubectl 1.30.0
+dapr-cli 1.13.0
+age 1.1.1
+awscli 2.15.42
+golang 1.22.2
+helm 3.14.4
+jq 1.7.1
+k9s 0.32.4
+kubectx 0.9.5
+krew 0.4.4
+tmux 3.4
+github-cli 2.49.0
