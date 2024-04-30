@@ -44,6 +44,16 @@
 	editor = code --wait
 [init]
 	defaultBranch = main
+
+
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+  path = .gitconfig-public
+
+[includeIf "hasconfig:remote.*.url:git@github.com*/**"]
+  path = .gitconfig-public
+
+[includeIf "hasconfig:remote.*.url:ssh://git@gitlab.ims.io:2222/**"]
+  path = .gitconfig-work
 [user]
+	email = eric.holton@gmail.com
 	name = Eric Holton
-	email = eholton@us.imshealth.com

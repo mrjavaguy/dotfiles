@@ -24,13 +24,3 @@ which sets up a few paths that'll be different on your particular machine.
 defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
-
-### ZSH
-
-Add the following to the bottom of your `~/.zshrc` file:
-
-```bash
-if [ -f ${HOME}/.dotfiles/zsh/.bash_exports ]; then
-  . ${HOME}/.dotfiles/zsh/.bash_exports
-fi
-```

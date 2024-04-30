@@ -1,0 +1,5 @@
+unzip
+coreutils
+automake
+autotools-dev
+autoconf
