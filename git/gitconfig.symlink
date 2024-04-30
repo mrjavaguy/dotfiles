@@ -54,6 +54,7 @@
 
 [includeIf "hasconfig:remote.*.url:ssh://git@gitlab.ims.io:2222/**"]
   path = .gitconfig-work
+[gpg]
+	format = ssh
 [user]
-	email = eric.holton@gmail.com
-	name = Eric Holton
+	signingkey = /home/eholton/.ssh/id_ed25519.pub

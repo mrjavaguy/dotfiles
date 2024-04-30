@@ -1,3 +1,4 @@
 [user]
 	name = Eric Holton
 	email = eric.holton@gmail.com
+	signingkey = /home/eholton/.ssh/id_ed25519.pub

@@ -26,6 +26,7 @@
     cleanup = clean -xdf -e *.DotSettings* -e s3_keys.ps1
     # Stages every file then creates a commit with specified message
     cm = !git add -A && git commit -m
+    cms = !git add -A && git commit -S -m
     co = checkout
     cob = checkout -b
     # Show list of files in a conflict state.
