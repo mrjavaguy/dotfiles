@@ -56,5 +56,4 @@
   path = .gitconfig-work
 [gpg]
 	format = ssh
-[user]
-	signingkey = /home/eholton/.ssh/id_ed25519.pub
+	
