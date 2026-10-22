@@ -10,3 +10,5 @@ alias la="ls -A --color=auto"
 alias cd..="cd .."
 
 alias tf="tail -f"
+
+alias docker="wslc.exe"
