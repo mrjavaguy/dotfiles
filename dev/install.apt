@@ -1,1 +1,6 @@
 coreutils
+podman
+podman-docker
+jq
+yq
+unzip

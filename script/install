@@ -4,7 +4,24 @@
 
 set -e
 
-cd "$(dirname $0)"/..
+cd "$(dirname "$0")/.."
+
+if [ "$(uname -s)" = Linux ] && command -v apt-get >/dev/null 2>&1; then
+	packages=()
+	while IFS= read -r -d '' manifest; do
+		while IFS= read -r line || [ -n "$line" ]; do
+			read -r -a entries <<< "${line%%#*}"
+			packages+=("${entries[@]}")
+		done < "$manifest"
+	done < <(find . -name install.apt -print0)
+
+	if [ "${#packages[@]}" -gt 0 ]; then
+		sudo apt-get update
+		sudo apt-get install -y -- "${packages[@]}"
+	fi
+fi
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+while IFS= read -r -d '' installer; do
+	bash "$installer"
+done < <(find . -name install.sh -print0)

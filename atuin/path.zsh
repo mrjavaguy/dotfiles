@@ -1,4 +1,6 @@
-# atuin.zsh is sourced before zshrc runs `brew shellenv`, so make sure brew's bin is on PATH
+export PATH="$HOME/.atuin/bin:$PATH"
+
+# Keep Linuxbrew installations available when the standalone binary is absent.
 if ! (( $+commands[atuin] )) && [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi

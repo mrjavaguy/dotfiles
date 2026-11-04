@@ -1,0 +1,40 @@
+export DOTFILES_ROOT="${${(%):-%N}:A:h:h}"
+export PATH="$DOTFILES_ROOT/bin:$PATH"
+
+for config in "$DOTFILES_ROOT"/*/path.zsh(N); do
+  source "$config"
+done
+
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
+
+for config in "$DOTFILES_ROOT"/*/oh-my-zsh.zsh(N); do
+  source "$config"
+done
+
+plugins=()
+for manifest in "$DOTFILES_ROOT"/*/oh-my-zsh.plugins(N); do
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    line="${line%%#*}"
+    plugins+=(${=line})
+  done < "$manifest"
+done
+plugins=("${(@u)plugins}")
+
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+  source "$ZSH/oh-my-zsh.sh"
+else
+  autoload -Uz compinit
+  compinit
+fi
+
+for config in "$DOTFILES_ROOT"/*/*.zsh(N); do
+  case "${config:t}" in
+    path.zsh|oh-my-zsh.zsh|completion.zsh) continue ;;
+  esac
+  source "$config"
+done
+
+for config in "$DOTFILES_ROOT"/*/completion.zsh(N); do
+  source "$config"
+done
